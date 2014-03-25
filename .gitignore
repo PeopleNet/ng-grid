@@ -79,6 +79,7 @@ web.config
 *.tmp
 *.vspscc
 .builds
+build
 *.dotCover
 
 #################
