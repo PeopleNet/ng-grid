@@ -11,6 +11,12 @@
 node_modules
 
 #################
+## Grunt
+#################
+
+build/
+
+#################
 ## Eclipse
 #################
 
@@ -79,7 +85,6 @@ web.config
 *.tmp
 *.vspscc
 .builds
-build
 *.dotCover
 
 #################
