@@ -49,7 +49,6 @@
         } else {
             return grid.data.length < 1;
         }
-
     };
     $scope.cantPageToLast = function() {
         if ($scope.totalServerItems > 0) {
@@ -62,5 +61,13 @@
     $scope.cantPageBackward = function() {
         var curPage = $scope.pagingOptions.currentPage;
         return curPage <= 1;
+    };
+
+    $scope.onCurrentPageChange = function($event) {
+        var value = $event.target.value;
+        if (!value || value < 1 || value > $scope.maxPages()) {
+            $event.preventDefault();
+            $event.stopPropagation();
+        }
     };
 };
