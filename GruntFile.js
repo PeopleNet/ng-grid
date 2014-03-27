@@ -151,7 +151,8 @@
         },
         ngtemplates: {
             ngGrid: {
-                options: { base: 'src/templates' },
+                // had to replace the base option of src/templates with a url function to remove src/templates from each path for $templateCache.put to match up with the $templateCache.get expectation
+                options: { url: function(file) { return file.replace(/src\/templates\//, '') } },
                 src: ['src/templates/**.html'],
                 dest: 'build/templates.js'
             }
