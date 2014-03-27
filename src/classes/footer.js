@@ -62,12 +62,4 @@
         var curPage = $scope.pagingOptions.currentPage;
         return curPage <= 1;
     };
-
-    $scope.onCurrentPageChange = function($event) {
-        var value = $event.target.value;
-        if (!value || value < 1 || value > $scope.maxPages()) {
-            $event.preventDefault();
-            $event.stopPropagation();
-        }
-    };
 };
