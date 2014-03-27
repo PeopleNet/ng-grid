@@ -39,6 +39,9 @@ var ngGrid = function ($scope, options, sortService, domUtilityService, $filter,
 
         //Enables cell editing on focus
         enableCellEditOnFocus: false,
+
+        //Enables cell editing on focus
+        enableCellEditBeforeFocus: false,
         
         //Enables cell selection.
         enableCellSelection: false,
@@ -78,6 +81,15 @@ var ngGrid = function ($scope, options, sortService, domUtilityService, $filter,
             filterText: "",
             useExternalFilter: false
         },
+
+        //Whether or not to focus elements while scrolling, which can cause performance degradation on IE browsers.
+        focusWhileScrolling : function() {
+            return true;
+        },
+
+        // Enables a trade off between refreshing the contents of the grid continuously while scrolling (behaviour when true) 
+        // and keeping the scroll bar button responsive at the expense of refreshing grid contents (behaviour when false)
+        forceSyncScrolling: true,
 
         //Defining the height of the footer in pixels.
         footerRowHeight: 55,
@@ -724,12 +736,15 @@ var ngGrid = function ($scope, options, sortService, domUtilityService, $filter,
     $scope.showSelectionCheckbox = self.config.showSelectionCheckbox;
     $scope.enableCellSelection = self.config.enableCellSelection;
     $scope.enableCellEditOnFocus = self.config.enableCellEditOnFocus;
+    $scope.enableCellEditBeforeFocus = self.config.enableCellEditBeforeFocus;
     $scope.footer = null;
     $scope.selectedItems = self.config.selectedItems;
     $scope.multiSelect = self.config.multiSelect;
     $scope.showFooter = self.config.showFooter;
     $scope.footerRowHeight = $scope.showFooter ? self.config.footerRowHeight : 0;
     $scope.showColumnMenu = self.config.showColumnMenu;
+    $scope.focusWhileScrolling = self.config.focusWhileScrolling;
+    $scope.forceSyncScrolling = self.config.forceSyncScrolling;
     $scope.showMenu = false;
     $scope.configGroups = [];
     $scope.gridId = self.gridId;
