@@ -2,7 +2,7 @@
 * ng-grid JavaScript Library
 * Authors: https://github.com/angular-ui/ng-grid/blob/master/README.md 
 * License: MIT (http://www.opensource.org/licenses/mit-license.php)
-* Compiled At: 03/27/2014 15:39
+* Compiled At: 03/31/2014 11:47
 ***********************************************/
 (function(window, $) {
 'use strict';
@@ -1198,12 +1198,10 @@ var ngFooter = function ($scope, grid) {
             return grid.data.length < 1;
         }
     };
+
     $scope.cantPageToLast = function() {
-        if ($scope.totalServerItems > 0) {
-            return $scope.cantPageForward();
-        } else {
-            return true;
-        }
+        var maxPages = $scope.maxPages();
+        return (maxPages < 2 || $scope.pagingOptions.currentPage === maxPages);
     };
     
     $scope.cantPageBackward = function() {

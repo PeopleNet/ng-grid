@@ -50,12 +50,10 @@
             return grid.data.length < 1;
         }
     };
+
     $scope.cantPageToLast = function() {
-        if ($scope.totalServerItems > 0) {
-            return $scope.cantPageForward();
-        } else {
-            return true;
-        }
+        var maxPages = $scope.maxPages();
+        return (maxPages < 2 || $scope.pagingOptions.currentPage === maxPages);
     };
     
     $scope.cantPageBackward = function() {
