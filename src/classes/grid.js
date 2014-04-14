@@ -46,6 +46,9 @@ var ngGrid = function ($scope, options, sortService, domUtilityService, $filter,
         //Enables cell selection.
         enableCellSelection: false,
 
+        //Enables tabbing between cells
+        enableCellTabbing: false,
+
         //Enable or disable resizing of columns
         enableColumnResize: false,
 
@@ -741,6 +744,7 @@ var ngGrid = function ($scope, options, sortService, domUtilityService, $filter,
     $scope.jqueryUITheme = self.config.jqueryUITheme;
     $scope.showSelectionCheckbox = self.config.showSelectionCheckbox;
     $scope.enableCellSelection = self.config.enableCellSelection;
+    $scope.enableCellTabbing = self.config.enableCellTabbing;
     $scope.enableCellEditOnFocus = self.config.enableCellEditOnFocus;
     $scope.enableCellEditBeforeFocus = self.config.enableCellEditBeforeFocus;
     $scope.footer = null;

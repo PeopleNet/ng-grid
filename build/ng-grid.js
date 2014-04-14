@@ -2,7 +2,7 @@
 * ng-grid JavaScript Library
 * Authors: https://github.com/angular-ui/ng-grid/blob/master/README.md 
 * License: MIT (http://www.opensource.org/licenses/mit-license.php)
-* Compiled At: 03/31/2014 11:47
+* Compiled At: 04/14/2014 11:02
 ***********************************************/
 (function(window, $) {
 'use strict';
@@ -51,7 +51,7 @@ var ngMoveSelectionHandler = function($scope, elm, evt, grid) {
     if (charCode !== 37 && charCode !== 38 && charCode !== 39 && charCode !== 40 && (grid.config.noTabInterference || charCode !== 9) && charCode !== 13) {
         return true;
     }
-    if ($scope.enableCellSelection) {
+    if ($scope.enableCellSelection || $scope.enableCellTabbing) {
         if (charCode === 9) { 
             evt.preventDefault();
         }
@@ -1139,6 +1139,7 @@ var ngGrid = function ($scope, options, sortService, domUtilityService, $filter,
         enableCellEditOnFocus: false,
         enableCellEditBeforeFocus: false,
         enableCellSelection: false,
+        enableCellTabbing: false,
         enableColumnResize: false,
         enableColumnReordering: false,
         enableColumnHeavyVirt: false,
@@ -1684,6 +1685,7 @@ var ngGrid = function ($scope, options, sortService, domUtilityService, $filter,
     $scope.jqueryUITheme = self.config.jqueryUITheme;
     $scope.showSelectionCheckbox = self.config.showSelectionCheckbox;
     $scope.enableCellSelection = self.config.enableCellSelection;
+    $scope.enableCellTabbing = self.config.enableCellTabbing;
     $scope.enableCellEditOnFocus = self.config.enableCellEditOnFocus;
     $scope.enableCellEditBeforeFocus = self.config.enableCellEditBeforeFocus;
     $scope.footer = null;

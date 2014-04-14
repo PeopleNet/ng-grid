@@ -2,7 +2,7 @@
 * ng-grid JavaScript Library
 * Authors: https://github.com/angular-ui/ng-grid/blob/master/README.md 
 * License: MIT (http://www.opensource.org/licenses/mit-license.php)
-* Compiled At: 03/31/2014 11:47
+* Compiled At: 04/14/2014 11:02
 ***********************************************/
 (function(window, $) {
 'use strict';
@@ -54,7 +54,7 @@ var ngMoveSelectionHandler = function($scope, elm, evt, grid) {
         return true;
     }
     
-    if ($scope.enableCellSelection) {
+    if ($scope.enableCellSelection || $scope.enableCellTabbing) {
         if (charCode === 9) { //tab key
             evt.preventDefault();
         }
@@ -1257,6 +1257,9 @@ var ngGrid = function ($scope, options, sortService, domUtilityService, $filter,
         //Enables cell selection.
         enableCellSelection: false,
 
+        //Enables tabbing between cells
+        enableCellTabbing: false,
+
         //Enable or disable resizing of columns
         enableColumnResize: false,
 
@@ -1952,6 +1955,7 @@ var ngGrid = function ($scope, options, sortService, domUtilityService, $filter,
     $scope.jqueryUITheme = self.config.jqueryUITheme;
     $scope.showSelectionCheckbox = self.config.showSelectionCheckbox;
     $scope.enableCellSelection = self.config.enableCellSelection;
+    $scope.enableCellTabbing = self.config.enableCellTabbing;
     $scope.enableCellEditOnFocus = self.config.enableCellEditOnFocus;
     $scope.enableCellEditBeforeFocus = self.config.enableCellEditBeforeFocus;
     $scope.footer = null;

@@ -20,7 +20,7 @@ var ngMoveSelectionHandler = function($scope, elm, evt, grid) {
         return true;
     }
     
-    if ($scope.enableCellSelection) {
+    if ($scope.enableCellSelection || $scope.enableCellTabbing) {
         if (charCode === 9) { //tab key
             evt.preventDefault();
         }
