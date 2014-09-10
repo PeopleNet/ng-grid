@@ -151,7 +151,7 @@
         },
         ngtemplates: {
             ngGrid: {
-                options: { url: function(file) { return file.replace(/src\/templates\//, '') } },
+                options: { base: 'src/templates' },
                 src: ['src/templates/**.html'],
                 dest: 'build/templates.js'
             }
