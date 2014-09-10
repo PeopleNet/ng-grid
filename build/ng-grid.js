@@ -2,7 +2,7 @@
 * ng-grid JavaScript Library
 * Authors: https://github.com/angular-ui/ng-grid/blob/master/README.md 
 * License: MIT (http://www.opensource.org/licenses/mit-license.php)
-* Compiled At: 04/15/2014 13:14
+* Compiled At: 09/10/2014 10:00
 ***********************************************/
 (function(window, $) {
 'use strict';
@@ -3166,10 +3166,9 @@ window.ngGrid.i18n['zh-tw'] = {
     ngPagerLastTitle: '最後頁'
 };
 
-angular.module('ngGrid').run(['$templateCache', function($templateCache) {
-  'use strict';
+angular.module("ngGrid").run(["$templateCache", function($templateCache) {
 
-  $templateCache.put('aggregateTemplate.html',
+  $templateCache.put("src/templates/aggregateTemplate.html",
     "<div ng-click=\"row.toggleExpand()\" ng-style=\"rowStyle(row)\" class=\"ngAggregate\">\r" +
     "\n" +
     "    <span class=\"ngAggregateText\">{{row.label CUSTOM_FILTERS}} ({{row.totalChildren()}} {{AggItemsLabel}})</span>\r" +
@@ -3179,7 +3178,8 @@ angular.module('ngGrid').run(['$templateCache', function($templateCache) {
     "</div>\r" +
     "\n"
   );
-  $templateCache.put('cellEditTemplate.html',
+
+  $templateCache.put("src/templates/cellEditTemplate.html",
     "<div ng-cell-has-focus ng-dblclick=\"editCell()\">\r" +
     "\n" +
     "\t<div ng-edit-cell-if=\"!(isFocused && CELL_EDITABLE_CONDITION)\">\t\r" +
@@ -3196,19 +3196,24 @@ angular.module('ngGrid').run(['$templateCache', function($templateCache) {
     "\n" +
     "</div>"
   );
-  $templateCache.put('cellTemplate.html',
+
+  $templateCache.put("src/templates/cellTemplate.html",
     "<div class=\"ngCellText\" ng-class=\"col.colIndex()\"><span ng-cell-text>{{COL_FIELD CUSTOM_FILTERS}}</span></div>"
   );
-  $templateCache.put('checkboxCellTemplate.html',
+
+  $templateCache.put("src/templates/checkboxCellTemplate.html",
     "<div class=\"ngSelectionCell\"><input tabindex=\"-1\" class=\"ngSelectionCheckbox\" type=\"checkbox\" ng-checked=\"row.selected\" /></div>"
   );
-  $templateCache.put('checkboxHeaderTemplate.html',
+
+  $templateCache.put("src/templates/checkboxHeaderTemplate.html",
     "<input class=\"ngSelectionHeader\" type=\"checkbox\" ng-show=\"multiSelect\" ng-model=\"allSelected\" ng-change=\"toggleSelectAll(allSelected, true)\"/>"
   );
-  $templateCache.put('editableCellTemplate.html',
+
+  $templateCache.put("src/templates/editableCellTemplate.html",
     "<input ng-class=\"'colt' + col.index\" ng-input=\"COL_FIELD\" ng-model=\"COL_FIELD\" />"
   );
-  $templateCache.put('footerTemplate.html',
+
+  $templateCache.put("src/templates/footerTemplate.html",
     "<div ng-show=\"showFooter\" class=\"ngFooterPanel\" ng-class=\"{'ui-widget-content': jqueryUITheme, 'ui-corner-bottom': jqueryUITheme}\" ng-style=\"footerStyle()\">\r" +
     "\n" +
     "    <div class=\"ngTotalSelectContainer\" >\r" +
@@ -3249,6 +3254,10 @@ angular.module('ngGrid').run(['$templateCache', function($templateCache) {
     "\n" +
     "            <input class=\"ngPagerCurrent\" min=\"1\" max=\"{{currentMaxPages}}\" type=\"number\" style=\"width:50px; height: 24px; margin-top: 1px; padding: 0 4px;\" ng-model=\"pagingOptions.currentPage\" />\r" +
     "\n" +
+    "            <!-- displays total number of pages -->\r" +
+    "\n" +
+    "            <span id=\"footerMaxPage\">/{{maxPage}}</span>\r" +
+    "\n" +
     "            <button type=\"button\" class=\"ngPagerButton\" ng-click=\"pageForward()\" ng-disabled=\"cantPageForward()\" title=\"{{i18n.ngPagerNextTitle}}\"><div class=\"ngPagerLastTriangle ngPagerNextTriangle\"></div></button>\r" +
     "\n" +
     "            <button type=\"button\" class=\"ngPagerButton\" ng-click=\"pageToLast()\" ng-disabled=\"cantPageToLast()\" title=\"{{i18n.ngPagerLastTitle}}\"><div class=\"ngPagerLastTriangle\"><div class=\"ngPagerLastBar\"></div></div></button>\r" +
@@ -3260,7 +3269,8 @@ angular.module('ngGrid').run(['$templateCache', function($templateCache) {
     "</div>\r" +
     "\n"
   );
-  $templateCache.put('gridTemplate.html',
+
+  $templateCache.put("src/templates/gridTemplate.html",
     "<div class=\"ngTopPanel\" ng-class=\"{'ui-widget-header':jqueryUITheme, 'ui-corner-top': jqueryUITheme}\" ng-style=\"topPanelStyle()\">\r" +
     "\n" +
     "    <div class=\"ngGroupPanel\" ng-show=\"showGroupPanel()\" ng-style=\"groupPanelStyle()\">\r" +
@@ -3312,7 +3322,8 @@ angular.module('ngGrid').run(['$templateCache', function($templateCache) {
     "<div ng-grid-footer></div>\r" +
     "\n"
   );
-  $templateCache.put('headerCellTemplate.html',
+
+  $templateCache.put("src/templates/headerCellTemplate.html",
     "<div class=\"ngHeaderSortColumn {{col.headerClass}}\" ng-style=\"{'cursor': col.cursor}\" ng-class=\"{ 'ngSorted': !noSortVisible }\">\r" +
     "\n" +
     "    <div ng-click=\"col.sort($event)\" ng-class=\"'colt' + col.index\" class=\"ngHeaderText\">{{col.displayName}}</div>\r" +
@@ -3329,7 +3340,8 @@ angular.module('ngGrid').run(['$templateCache', function($templateCache) {
     "\n" +
     "<div ng-show=\"col.resizable\" class=\"ngHeaderGrip\" ng-click=\"col.gripClick($event)\" ng-mousedown=\"col.gripOnMouseDown($event)\"></div>"
   );
-  $templateCache.put('headerRowTemplate.html',
+
+  $templateCache.put("src/templates/headerRowTemplate.html",
     "<div ng-style=\"{ height: col.headerRowHeight }\" ng-repeat=\"col in renderedColumns\" ng-class=\"col.colIndex()\" class=\"ngHeaderCell\">\r" +
     "\n" +
     "\t<div class=\"ngVerticalBar\" ng-style=\"{height: col.headerRowHeight}\" ng-class=\"{ ngVerticalBarVisible: !$last }\">&nbsp;</div>\r" +
@@ -3338,7 +3350,8 @@ angular.module('ngGrid').run(['$templateCache', function($templateCache) {
     "\n" +
     "</div>"
   );
-  $templateCache.put('menuTemplate.html',
+
+  $templateCache.put("src/templates/menuTemplate.html",
     "<div ng-show=\"showColumnMenu || showFilter\"  class=\"ngHeaderButton\" ng-click=\"toggleShowMenu()\">\r" +
     "\n" +
     "    <div class=\"ngHeaderButtonArrow\"></div>\r" +
@@ -3375,7 +3388,8 @@ angular.module('ngGrid').run(['$templateCache', function($templateCache) {
     "\n" +
     "</div>"
   );
-  $templateCache.put('rowTemplate.html',
+
+  $templateCache.put("src/templates/rowTemplate.html",
     "<div ng-style=\"{ 'cursor': row.cursor }\" ng-repeat=\"col in renderedColumns\" ng-class=\"col.colIndex()\" class=\"ngCell {{col.cellClass}}\">\r" +
     "\n" +
     "\t<div class=\"ngVerticalBar\" ng-style=\"{height: rowHeight}\" ng-class=\"{ ngVerticalBarVisible: !$last }\">&nbsp;</div>\r" +
