@@ -2,7 +2,7 @@
 * ng-grid JavaScript Library
 * Authors: https://github.com/angular-ui/ng-grid/blob/master/README.md 
 * License: MIT (http://www.opensource.org/licenses/mit-license.php)
-* Compiled At: 09/10/2014 10:34
+* Compiled At: 09/10/2014 16:00
 ***********************************************/
 (function(window, $) {
 'use strict';
@@ -3614,7 +3614,7 @@ angular.module("ngGrid").run(["$templateCache", function($templateCache) {
     "\n" +
     "            <!-- displays total number of pages -->\r" +
     "\n" +
-    "            <span id=\"footerMaxPage\">/{{maxPage}}</span>\r" +
+    "            <span id=\"footerMaxPage\">/{{currentMaxPages}}</span>\r" +
     "\n" +
     "            <button type=\"button\" class=\"ngPagerButton\" ng-click=\"pageForward()\" ng-disabled=\"cantPageForward()\" title=\"{{i18n.ngPagerNextTitle}}\"><div class=\"ngPagerLastTriangle ngPagerNextTriangle\"></div></button>\r" +
     "\n" +
